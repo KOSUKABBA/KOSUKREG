@@ -206,7 +206,7 @@
 
       <div class="field">
         <label>Email<span class="req">*</span></label>
-        <input type="email" id="email" pattern="^[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.com$" placeholder="e.g. name@example.com" required>
+        <input type="email" id="email" placeholder="e.g. name@example.com" required>
       </div>
 
       <div class="field">
@@ -408,7 +408,7 @@
 
     var DEPARTMENTS_BY_CATEGORY = {
       "TEACHING STAFF": ["Accounting","Business Administration","Chemistry","Computer Science","Economics","English Language and Literature","Finance","Geographical Sciences","Geology","History and Diplomatic Studies","Mass Communication","Mathematical Sciences","Physics","Political Science","Public Administration","Theatre Arts"],
-      "NON-TEACHING STAFF": ["Academic Planning","Audit","Bursary","ICT","Library","Physical Planning","Registry","Security","University Clinic"]
+      "NON-TEACHING STAFF": ["Academic Planning","Audit","Bursary","ICT","Library","Physical Planning","Registry","Security","Technologist","University Clinic"]
     };
 
     var departmentSelect = document.getElementById('department');
@@ -479,9 +479,9 @@
         return;
       }
       var emailEl = document.getElementById('email');
-      if (!/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.com$/.test(emailEl.value)) {
+      if (!/^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$/.test(emailEl.value)) {
         status.className = 'error';
-        status.textContent = 'Enter a valid email ending in .com';
+        status.textContent = 'Enter a valid email address.';
         emailEl.focus();
         return;
       }
