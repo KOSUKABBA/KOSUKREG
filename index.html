@@ -407,7 +407,7 @@
     });
 
     var DEPARTMENTS_BY_CATEGORY = {
-      "TEACHING STAFF": ["Accounting","Business Administration","Chemistry","Computer Science","Economics","English Language and Literature","Finance","Geographical Sciences","Geology","History and Diplomatic Studies","Mass Communication","Mathematical Sciences","Physics","Political Science","Public Administration","Theatre Arts"],
+      "TEACHING STAFF": ["Accounting","Business Administration","Chemistry","Computer Science","Economics","English Language and Literature","Finance","Geographical Sciences","Geology","History and Diplomatic Studies","Mass Communication","Mathematical Sciences","Physics","Political Science","Public Administration","Technologist","Theatre Arts"],
       "NON-TEACHING STAFF": ["Academic Planning","Audit","Bursary","ICT","Library","Physical Planning","Registry","Security","Technologist","University Clinic"]
     };
 
@@ -415,7 +415,7 @@
 
     var departmentUnitPostedSelect = document.getElementById('departmentUnitPosted');
     var EXTRA_POSTING_CATEGORIES = ['FMAS', 'FSC', 'FAH', 'Swies'];
-    DEPARTMENTS_BY_CATEGORY["TEACHING STAFF"].concat(DEPARTMENTS_BY_CATEGORY["NON-TEACHING STAFF"], EXTRA_POSTING_CATEGORIES).forEach(function(dept) {
+    DEPARTMENTS_BY_CATEGORY["TEACHING STAFF"].concat(DEPARTMENTS_BY_CATEGORY["NON-TEACHING STAFF"], EXTRA_POSTING_CATEGORIES).filter(function(d, i, a) { return a.indexOf(d) === i; }).forEach(function(dept) {
       var opt = document.createElement('option');
       opt.value = dept;
       opt.textContent = dept;
